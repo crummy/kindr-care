@@ -27,3 +27,10 @@ This is a small Astro site for Kindr. Keep the codebase intentionally simple.
 
 - Run `npm run build` before handing off changes.
 - Check mobile and desktop layout when changing major sections or navigation.
+
+## Deployment
+
+- Cloudflare Pages deploys are triggered from GitHub pushes to `main`.
+- When the user says "deploy", validate with `npm run build`, commit any intended changes if needed, then run `git push origin main`.
+- Do not use `wrangler pages deploy` unless the user explicitly asks for a manual Cloudflare deploy.
+- Keep `wrangler.jsonc` aligned with the Cloudflare Pages project settings.
