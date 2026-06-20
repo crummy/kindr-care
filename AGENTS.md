@@ -17,6 +17,7 @@ This is a small Astro site for Kindr. Keep the codebase intentionally simple.
 
 ## Implementation
 
+- In a fresh conversation where the user describes site changes, start a development server with `npm run dev` before making or previewing edits.
 - Keep page content in typed data files under `src/content` when it is repeated or likely to change.
 - Prefer accessible HTML elements over custom controls.
 - Keep JavaScript small and progressive. The site should still show its core content without JavaScript.
