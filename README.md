@@ -1,6 +1,6 @@
 # Kindr Care
 
-Static Astro site for Kindr, configured for Cloudflare Pages hosting.
+Static Astro site for Kindr, configured for Cloudflare Workers static-assets hosting.
 
 ## Development
 
@@ -16,18 +16,18 @@ npm run build
 npm audit --omit=dev
 ```
 
-## Cloudflare Pages
+## Cloudflare Workers
 
-Connect the GitHub repository `crummy/kindr-care` to Cloudflare Pages with:
+Connect the GitHub repository `crummy/kindr-care` to a Cloudflare Workers project with:
 
 - Production branch: `main`
 - Build command: `npm run build`
-- Build output directory: `dist`
+- Deploy command: `npx wrangler deploy`
 - Project name: `kindr-care`
 
-The repo includes `wrangler.jsonc` with `pages_build_output_dir` set to `./dist`. Keep Cloudflare Pages project settings aligned with that file.
+The repo includes `wrangler.jsonc` with `assets.directory` set to `./dist`. This is what `wrangler deploy` uses to upload the static Astro build.
 
-Future form submission handlers can be added as Cloudflare Pages Functions under `functions/`. For example, `functions/api/contact.ts` will route to `/api/contact`.
+Future form submission handlers can be added by introducing a Worker script and routing API requests there while continuing to serve static assets from `dist`.
 
 ## Deployment
 
@@ -40,5 +40,5 @@ git push origin main
 For an authenticated manual deploy from a local checkout:
 
 ```sh
-npm run pages:deploy
+npm run workers:deploy
 ```

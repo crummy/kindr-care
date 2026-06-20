@@ -7,8 +7,8 @@
     "dev": "astro dev",
     "build": "astro check && astro build",
     "preview": "astro preview",
-    "pages:preview": "npm run build && wrangler pages dev dist",
-    "pages:deploy": "npm run build && wrangler pages deploy dist --project-name kindr-care"
+    "workers:preview": "npm run build && wrangler dev",
+    "workers:deploy": "npm run build && wrangler deploy"
   },
   "dependencies": {
     "astro": "^6.4.8"

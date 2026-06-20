@@ -30,8 +30,8 @@ This is a small Astro site for Kindr. Keep the codebase intentionally simple.
 
 ## Deployment
 
-- Cloudflare Pages deploys are triggered from GitHub pushes to `main`.
+- Cloudflare Workers deploys are triggered from GitHub pushes to `main`.
 - When the user says "deploy", validate with `npm run build`, commit any intended changes if needed, then run `git push origin main`.
 - If `git push origin main` is rejected because the remote has new changes, run `git pull --no-rebase origin main`, resolve any merge conflicts, rerun `npm run build`, commit the merge if needed, then push again.
-- Do not use `wrangler pages deploy` unless the user explicitly asks for a manual Cloudflare deploy.
-- Keep `wrangler.jsonc` aligned with the Cloudflare Pages project settings.
+- Do not use Wrangler for normal deploys unless the user explicitly asks for a manual Cloudflare deploy. For Workers static-assets manual deploys, use `npm run workers:deploy`.
+- Keep `wrangler.jsonc` aligned with the Cloudflare Workers project settings.
