@@ -1,0 +1,50 @@
+---
+import ChatWidget from "@components/ChatWidget.astro";
+import Header from "@components/Header.astro";
+import Icon from "@components/Icon.astro";
+import Modal from "@components/Modal.astro";
+import SectionHead from "@components/SectionHead.astro";
+import BaseLayout from "@layouts/BaseLayout.astro";
+---
+
+<BaseLayout
+  title="Get in touch - Kindr Matrescence Care"
+  description="Reach out directly to Janet Horwell, Matrescence Practitioner at Kindr. Share how you're feeling and let's start the conversation."
+>
+  <Header />
+
+  <main>
+    <section class="contact" id="contact" style="min-height: 70vh; display: flex; align-items: center; justify-content: center; padding: 60px 0 100px;">
+      <div class="contact-card" style="width: 100%;">
+        <SectionHead kicker="Reach out directly" title="Get in touch" />
+        <form class="contact-form" id="contactForm">
+          <div class="form-fields">
+            <div>
+              <label for="contactName">Name</label>
+              <input type="text" id="contactName" placeholder="Your name" required />
+            </div>
+            <div>
+              <label for="contactMessage">Tell me a bit about yourself and where you're currently at</label>
+              <textarea id="contactMessage" rows="5" placeholder="Share whatever feels relevant, there's no wrong way to start." required></textarea>
+            </div>
+            <button class="btn btn-primary btn-block" type="submit">Send to Janet</button>
+          </div>
+          <div class="modal-success">
+            <Icon name="check" />
+            <p>Your email app should now be open with your message ready to send to Janet. Once it's sent, she'll be in touch soon.</p>
+          </div>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">&copy; <span id="year"></span> Kindr. Matrescence Continuity of Care.</div>
+  </footer>
+
+  <ChatWidget />
+  <Modal />
+  <script>
+    import "../scripts/site";
+  </script>
+</BaseLayout>

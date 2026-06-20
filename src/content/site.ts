@@ -1,13 +1,14 @@
 export const business = {
   name: "Kindr",
   email: "janethorwell@gmail.com",
-  calendlyUrl: "https://calendly.com/janethorwell/matrescence-session",
+  calendlyUrl: "https://calendly.com/janethorwell/45min-matrescence-practitioner-session",
 };
 
 export const navLinks = [
-  { href: "#what-is-matrescence", label: "Matrescence" },
-  { href: "#janet", label: "Meet Janet" },
-  { href: "#packages", label: "Packages" },
+  { href: "/#what-is-matrescence", label: "Matrescence" },
+  { href: "/#janet", label: "Meet Janet" },
+  { href: "/#packages", label: "Packages" },
+  { href: "/contact", label: "Contact" },
 ] as const;
 
 export const availabilitySlots = ["Wed 10:00am", "Thu 10:00am", "Thu 12:00pm"] as const;
@@ -16,7 +17,7 @@ export const whyCards = [
   {
     title: "Continuity of Care",
     icon: "heart",
-    text: "Your midwife has left, and you don't feel like yourself yet. A Matrescence Practitioner helps you navigate this enormous transformation, picking up exactly where you need us to feel confident in your journey.",
+    text: "Your midwife has left, and you don't feel like yourself yet. A Matrescence Practitioner helps you navigate this enormous transformation, connecting in right when you need support.",
   },
   {
     title: "Evidence & Nurture",
@@ -25,7 +26,7 @@ export const whyCards = [
   },
   {
     title: "Understand Matrescence",
-    icon: "leaf",
+    icon: "grateful-hands",
     text: "Once you can name what you're going through, you can move through it. Understand the psychological shift into motherhood, and find a path within it that's actually yours.",
   },
 ] as const;
@@ -58,7 +59,7 @@ export const packages: readonly Package[] = [
   {
     title: "Coaching Journey",
     icon: "plus",
-    description: "6 sessions of 1:1 Matrescence Practitioner coaching. Ongoing, continuous care to walk alongside you through matrescence, not just one conversation.",
+    description: "6 sessions of 1:1 Matrescence Practitioner coaching. Ongoing, continuous care to walk alongside you through matrescence.",
     price: "From $420",
     suffix: "for 6 sessions",
     action: "Start the journey",
@@ -69,7 +70,7 @@ export const packages: readonly Package[] = [
   {
     title: "Matrescence Circles",
     icon: "circle",
-    description: "Small group circles with other mothers navigating matrescence alongside you. Shared stories, shared understanding, less alone.",
+    description: "Small group circles with other mothers navigating matrescence alongside you. Shared stories and a shared understanding.",
     price: "Coming soon",
     action: "Join the waitlist",
     variant: "modal",

@@ -1072,3 +1072,36 @@ footer {
     font-size: 18px;
   }
 }
+
+/* Gift Card Modal Choices Styling */
+.gift-choices {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  margin-bottom: 12px;
+}
+
+.gift-choices .btn-choice {
+  border: 1.5px solid var(--lavender);
+  background: #fff;
+  color: var(--plum);
+  padding: 12px 10px;
+  font-family: "Nunito Sans", sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-align: center;
+}
+
+.gift-choices .btn-choice:hover {
+  background: var(--lavender-soft);
+  border-color: var(--maroon);
+}
+
+.gift-choices .btn-choice.active {
+  background: var(--plum);
+  color: #fff;
+  border-color: var(--plum);
+}

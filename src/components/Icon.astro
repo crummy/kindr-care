@@ -1,6 +1,6 @@
 ---
 interface Props {
-  name: "heart" | "sparkle" | "leaf" | "person" | "plus" | "circle" | "chat" | "close" | "menu" | "check";
+  name: "heart" | "sparkle" | "leaf" | "person" | "plus" | "circle" | "chat" | "close" | "menu" | "check" | "grateful-hands";
 }
 
 const { name } = Astro.props;
@@ -54,5 +54,14 @@ const { name } = Astro.props;
 {
   name === "check" && (
     <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.6" /><path d="M8 12.5l2.5 2.5L16 9" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" /></svg>
+  )
+}
+{
+  name === "grateful-hands" && (
+    <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+      <path d="M11 19c-3.6-2.6-7-6.2-7-10.5C4 5.6 6.6 3 10 3c1.5 0 2.8.6 4 1.5C15.2 3.6 16.5 3 18 3c3.4 0 6 2.6 6 5.5 0 4.3-3.4 7.9-7 10.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
+      <path d="M12 15.5 8 12c-2.3-2.3-2.3-6 0-8.3 1.2-1.2 2.8-1.7 4.5-1.7" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
+      <path d="M12 15.5 16 12c2.3-2.3 2.3-6 0-8.3-1.2-1.2-2.8-1.7-4.5-1.7" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
+    </svg>
   )
 }
