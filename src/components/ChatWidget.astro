@@ -1,0 +1,26 @@
+---
+import Icon from "./Icon.astro";
+---
+
+<button class="float-chat" type="button" data-chat-toggle>
+  <Icon name="chat" />
+  <span>Ask Janet a question</span>
+</button>
+
+<div class="chat-box" id="chatBox">
+  <div class="chat-head">
+    <div>
+      <strong>Chat to Janet</strong>
+      <small>Usually replies within a day</small>
+    </div>
+    <button type="button" data-chat-toggle aria-label="Close chat">
+      <Icon name="close" />
+    </button>
+  </div>
+  <div class="chat-body">
+    <p>Ask a quick question and it'll be sent straight to Janet's inbox.</p>
+    <textarea id="chatMessage" rows="4" placeholder="What's on your mind?"></textarea>
+    <button class="btn btn-primary btn-block" type="button" data-chat-send>Send</button>
+    <div class="chat-success" id="chatSuccess">Your email app should now be open, just hit send!</div>
+  </div>
+</div>

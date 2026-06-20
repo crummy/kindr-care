@@ -1,0 +1,196 @@
+---
+import ChatWidget from "@components/ChatWidget.astro";
+import Header from "@components/Header.astro";
+import Icon from "@components/Icon.astro";
+import Modal from "@components/Modal.astro";
+import SectionHead from "@components/SectionHead.astro";
+import BaseLayout from "@layouts/BaseLayout.astro";
+import { availabilitySlots, bioParagraphs, packages, whyCards } from "@content/site";
+---
+
+<BaseLayout
+  title="Kindr, Matrescence Continuity of Care After Your Midwife Leaves"
+  description="Matrescence continuity of care with Janet Horwell for mothers navigating the transition after midwife support ends."
+>
+  <Header />
+
+  <main id="top">
+    <section class="hero">
+      <div class="wrap hero-grid">
+        <div>
+          <span class="eyebrow">Matrescence Continuity of Care</span>
+          <h1>Your midwife has left.<br />You don't feel like yourself.<br /><em>This is matrescence.</em></h1>
+          <p class="lead">It's the seismic, beautiful, disorienting shift into motherhood, and no one prepared you for how hard it might be feeling. I'm Janet, your Matrescence Practitioner, and I'm here for exactly this part of the journey.</p>
+          <div class="hero-actions">
+            <a class="btn btn-cream" href="#janet">Book with Janet</a>
+          </div>
+        </div>
+        <div class="hero-art">
+          <img src="/images/header-shot.png" alt="Two women sharing a quiet moment, one holding a cup of tea, the other breastfeeding her baby" />
+        </div>
+      </div>
+    </section>
+
+    <section class="intro-section" id="what-is-matrescence">
+      <div class="wrap">
+        <div class="intro-card">
+          <h2>Matrescence is the transformation of becoming a mother.</h2>
+          <p>It's the physical, emotional, psychological and identity shift that begins at conception and lasts a lifetime.</p>
+          <p>
+            Like adolescence, it is a major developmental stage of life. A time of rapid change, growth, uncertainty and rewiring. The difference is that society prepares us for teenage transformation, but rarely prepares us for the even more profound transformation of becoming a mother.
+            <button class="read-more-btn" type="button" id="readMoreBtn" aria-expanded="false" aria-controls="readMoreText">(read more)</button>
+          </p>
+          <p class="intro-more" id="readMoreText" hidden>I hope my work in matrescence gives a name to the non-linear journey of becoming, that mothers feel but struggle to explain. Your body, your brain, your relationships, your priorities, your sense of self all change. Matrescence is a natural, biological process every mother goes through, each in their unique way.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="why" id="why">
+      <div class="wrap">
+        <SectionHead kicker="For mothers, by mothers" title="Why do I need a Matrescence Practitioner?" />
+        <div class="why-grid">
+          {whyCards.map((card) => (
+            <article class="why-card">
+              <div class="why-icon">
+                <Icon name={card.icon} />
+              </div>
+              <h3>{card.title}</h3>
+              <p>{card.text}</p>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="stat">
+      <div class="wrap stat-grid">
+        <div class="stat-number">82%</div>
+        <p>of mothers don't meet the criteria for a clinical diagnosis of postnatal depression, but they're still struggling, and they still deserve support.</p>
+      </div>
+    </section>
+
+    <section class="meet" id="janet">
+      <div class="wrap meet-grid">
+        <div class="meet-photo-card">
+          <div class="meet-photo">
+            <img src="/images/janet-photo.jpg" alt="Janet Horwell, Matrescence Practitioner" />
+          </div>
+          <div class="meet-meta">
+            <div class="name">Janet Horwell</div>
+            <div class="role">Matrescence Practitioner</div>
+            <div class="availability">
+              <span class="label">Available this week</span>
+              <div class="slots">
+                {availabilitySlots.map((slot) => <button class="slot" type="button" data-calendly>{slot}</button>)}
+              </div>
+            </div>
+            <button class="btn btn-primary btn-block" type="button" data-calendly>Book with Janet</button>
+          </div>
+        </div>
+
+        <div class="meet-copy">
+          <span class="eyebrow-light">Matrescence Continuity of Care</span>
+          <div class="bio">
+            <p class="greeting">Kia ora, hi! I'm Janet.</p>
+            {bioParagraphs.map((paragraph) => <p>{paragraph}</p>)}
+          </div>
+          <button class="btn btn-primary" type="button" data-calendly>Book with Janet</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="trusted">
+      <div class="wrap trusted-grid">
+        <div class="seal" aria-hidden="true">
+          <svg viewBox="0 0 100 100" fill="none">
+            <path d="M50 4 L62 14 L78 12 L80 28 L94 36 L86 50 L94 64 L80 72 L78 88 L62 86 L50 96 L38 86 L22 88 L20 72 L6 64 L14 50 L6 36 L20 28 L22 12 L38 14 Z" fill="#7E1A47" />
+            <path d="M34 50 L45 61 L68 38" stroke="#fff" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" />
+          </svg>
+        </div>
+        <div>
+          <h2>Kindr. Trusted by mothers. Backed by experts.</h2>
+          <p>Janet Horwell is professionally trained as a Matrescence Practitioner through Matrescence New Zealand's Practitioner Training. It has been designed and run by psychologist Christina Bond.</p>
+          <p>Kindr is committed to ongoing training in postpartum mental health, nutrition and sleep, and this underlines why mothers and families trust us.</p>
+          <div class="badges">
+            <span class="badge"><Icon name="heart" />Matrescence NZ Graduate</span>
+            <span class="badge"><Icon name="sparkle" />Certified Postpartum Care</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="packages" id="packages">
+      <div class="wrap">
+        <SectionHead kicker="Care that fits your week" title="Choose your package" />
+        <div class="pkg-grid">
+          {packages.map((pkg) => (
+            <article class:list={["pkg-card", { popular: pkg.popular }]}>
+              {pkg.popular && <span class="popular-tag">Most chosen</span>}
+              <div class="pkg-icon">
+                <Icon name={pkg.icon} />
+              </div>
+              <h3>{pkg.title}</h3>
+              <p class="pkg-desc">{pkg.description}</p>
+              <div class="pkg-price">{pkg.price} {pkg.suffix && <span>{pkg.suffix}</span>}</div>
+              {pkg.variant === "modal" ? (
+                <button class="btn btn-outline btn-block" type="button" data-open-modal="waitlistModal">{pkg.action}</button>
+              ) : (
+                <a class:list={["btn", "btn-block", pkg.variant === "primary" ? "btn-primary" : "btn-outline"]} href={pkg.href ?? "#janet"}>{pkg.action}</a>
+              )}
+            </article>
+          ))}
+        </div>
+
+        <p class="promise"><strong>Kindr promise:</strong> try it risk free. If you don't use your care by three months postpartum, we'll refund you completely.</p>
+      </div>
+    </section>
+
+    <section class="signup">
+      <div class="wrap signup-grid">
+        <div>
+          <h2>Power up your existing village</h2>
+          <p>Getting your ongoing village set up is key for long-term, sustained support, and we'll show you how. Sign up for a free template, plus the occasional email with useful tips and discounts.</p>
+        </div>
+        <form class="signup-form" data-signup-form>
+          <input type="text" name="firstName" placeholder="First name" required />
+          <input type="email" name="email" placeholder="Email" required />
+          <button class="btn btn-cream" type="submit">Sign up</button>
+          <span class="signup-fine">We won't send you spam. You can unsubscribe at any time.</span>
+        </form>
+      </div>
+    </section>
+
+    <section class="contact" id="contact">
+      <div class="contact-card">
+        <SectionHead kicker="Reach out directly" title="Get in touch" />
+        <form class="contact-form" id="contactForm">
+          <div class="form-fields">
+            <div>
+              <label for="contactName">Name</label>
+              <input type="text" id="contactName" placeholder="Your name" required />
+            </div>
+            <div>
+              <label for="contactMessage">Tell me a bit about yourself and where you're currently at</label>
+              <textarea id="contactMessage" rows="5" placeholder="Share whatever feels relevant, there's no wrong way to start." required></textarea>
+            </div>
+            <button class="btn btn-primary btn-block" type="submit">Send to Janet</button>
+          </div>
+          <div class="modal-success">
+            <Icon name="check" />
+            <p>Your email app should now be open with your message ready to send to Janet. Once it's sent, she'll be in touch soon.</p>
+          </div>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">&copy; <span id="year"></span> Kindr. Matrescence Continuity of Care.</div>
+  </footer>
+
+  <ChatWidget />
+  <Modal />
+  <script>
+    import "../scripts/site";
+  </script>
+</BaseLayout>

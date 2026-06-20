@@ -1,0 +1,45 @@
+---
+import Icon from "./Icon.astro";
+---
+
+<div class="modal-overlay" id="waitlistModal">
+  <div class="modal-box" role="dialog" aria-modal="true" aria-labelledby="waitlistTitle">
+    <button class="modal-close" type="button" data-close-modal="waitlistModal" aria-label="Close">
+      <Icon name="close" />
+    </button>
+
+    <div id="waitlistStep1" class="modal-step">
+      <span class="step-indicator">Step 1 of 2</span>
+      <h3 id="waitlistTitle">Join the Matrescence Circles waitlist</h3>
+      <p class="modal-sub">Small group circles with other mothers are launching soon. Pop your details in and you'll be first to know.</p>
+      <label for="waitlistName">Name</label>
+      <input type="text" id="waitlistName" placeholder="Your name" required />
+      <label for="waitlistEmail">Email</label>
+      <input type="email" id="waitlistEmail" placeholder="you@email.com" required />
+      <div class="modal-actions">
+        <button class="btn btn-primary" type="button" data-waitlist-next>Next</button>
+      </div>
+    </div>
+
+    <div id="waitlistStep2" class="modal-step" hidden>
+      <span class="step-indicator">Step 2 of 2</span>
+      <h3>Almost there</h3>
+      <p class="modal-sub">What challenges are you facing right now, or what would you like to get out of a circle with other mothers?</p>
+      <textarea id="waitlistAnswer" rows="5" placeholder="Share as much or as little as you'd like"></textarea>
+      <div class="modal-actions">
+        <button class="btn btn-outline" type="button" data-waitlist-back>Back</button>
+        <button class="btn btn-primary" type="button" data-waitlist-submit>Join Waitlist</button>
+      </div>
+    </div>
+
+    <div id="waitlistStep3" class="modal-step" hidden>
+      <div class="modal-success">
+        <Icon name="check" />
+        <p>You're on the list! Your email app should now be open so you can send your details through to Janet. She'll reach out as soon as Matrescence Circles open.</p>
+      </div>
+      <div class="modal-actions">
+        <button class="btn btn-primary btn-block" type="button" data-close-modal="waitlistModal">Done</button>
+      </div>
+    </div>
+  </div>
+</div>
