@@ -6,5 +6,8 @@
   "assets": {
     "directory": "./dist",
     "binding": "ASSETS"
+  },
+  "vars": {
+    "CALENDLY_EVENT_TYPE_URI": "https://api.calendly.com/event_types/2c6435b7-aa77-4a62-a8ee-0d11211a911d"
   }
 }
