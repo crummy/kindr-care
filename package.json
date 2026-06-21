@@ -11,6 +11,7 @@
     "workers:deploy": "npm run build && wrangler deploy"
   },
   "dependencies": {
+    "@lucide/astro": "^1.21.0",
     "astro": "^6.4.8"
   },
   "overrides": {
