@@ -344,6 +344,12 @@ header {
   color: var(--plum);
 }
 
+.section-head p {
+  margin-top: 14px;
+  color: var(--ink-soft);
+  font-size: 16px;
+}
+
 .why-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -712,6 +718,12 @@ header {
   gap: 14px;
 }
 
+.form-fields {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
 .signup-form input,
 .contact-form input,
 .contact-form textarea,
@@ -794,6 +806,55 @@ footer {
 
 .contact-form .modal-success.show {
   display: block;
+}
+
+.contact-intro {
+  padding-top: 64px;
+  padding-bottom: 0;
+}
+
+.contact-intro .section-head {
+  margin-bottom: 0;
+}
+
+.crisis {
+  background: var(--cream);
+  padding: 0 0 56px;
+}
+
+.crisis-box {
+  max-width: 760px;
+  margin: 0 auto;
+  background: var(--lavender-soft);
+  border: 1.5px solid var(--lavender);
+  border-radius: 20px;
+  padding: 30px 36px;
+}
+
+.crisis-lead {
+  font-weight: 700;
+  color: var(--plum);
+  font-size: 15.5px;
+  margin-bottom: 14px;
+}
+
+.crisis-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.crisis-list li {
+  font-size: 14.5px;
+  color: var(--ink-soft);
+  line-height: 1.5;
+}
+
+.crisis-list strong {
+  color: var(--plum);
 }
 
 .modal-overlay {

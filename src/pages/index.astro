@@ -5,7 +5,7 @@ import Icon from "@components/Icon.astro";
 import Modal from "@components/Modal.astro";
 import SectionHead from "@components/SectionHead.astro";
 import BaseLayout from "@layouts/BaseLayout.astro";
-import { availabilitySlots, bioParagraphs, packages, whyCards } from "@content/site";
+import { availabilitySlots, bioParagraphs, crisisSupport, packages, whyCards } from "@content/site";
 ---
 
 <BaseLayout
@@ -121,7 +121,7 @@ import { availabilitySlots, bioParagraphs, packages, whyCards } from "@content/s
           ))}
         </div>
 
-        <p class="promise"><strong>Kindr promise:</strong> try it risk free. If you don't use your care by three months postpartum, we'll refund you completely.</p>
+        <p class="promise"><strong>Kindr promise:</strong> try it risk free. If you don't start your care by three months postpartum, we'll refund you completely.</p>
       </div>
     </section>
 
@@ -136,7 +136,7 @@ import { availabilitySlots, bioParagraphs, packages, whyCards } from "@content/s
         <div>
           <h2>Kindr. Trusted by mothers. Backed by experts.</h2>
           <p>Janet Horwell is professionally trained as a Matrescence Practitioner through Matrescence New Zealand's Practitioner Training. It has been designed and run by psychologist Christina Bond.</p>
-          <p>Kindr is committed to ongoing training in postpartum mental health, nutrition and sleep, and this underlines why mothers and families trust us.</p>
+          <p>Kindr is committed to ongoing training in overall postpartum health, nutrition and sleep, and this underlines why mothers and families trust us.</p>
           <div class="badges">
             <span class="badge"><Icon name="heart" />Matrescence NZ Graduate</span>
             <span class="badge"><Icon name="sparkle" />Certified Postpartum Care</span>
@@ -157,6 +157,17 @@ import { availabilitySlots, bioParagraphs, packages, whyCards } from "@content/s
           <button class="btn btn-cream" type="submit">Sign up</button>
           <span class="signup-fine">We won't send you spam. You can unsubscribe at any time.</span>
         </form>
+      </div>
+    </section>
+
+    <section class="crisis">
+      <div class="wrap crisis-box">
+        <p class="crisis-lead">Kindr is not a crisis support, but if you are in need of urgent support please contact one of the following:</p>
+        <ul class="crisis-list">
+          {crisisSupport.map((item) => (
+            <li><strong>{item.label}:</strong> {item.text}</li>
+          ))}
+        </ul>
       </div>
     </section>
 

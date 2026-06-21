@@ -17,17 +17,17 @@ export const whyCards = [
   {
     title: "Continuity of Care",
     icon: "heart",
-    text: "Your midwife has left, and you don't feel like yourself yet. A Matrescence Practitioner helps you navigate this enormous transformation, connecting in right when you need support.",
+    text: "Your midwife has left, and you don't feel like yourself. A Matrescence Practitioner helps you navigate this enormous transformation, supporting you right when you need it, so you can focus on bonding with your baby and adjusting to this new phase.",
   },
   {
     title: "Evidence & Nurture",
     icon: "sparkle",
-    text: "Evidence-based practice with lived experience, woven together. You're guided by someone who understands matrescence deeply, and can meet you where you are at, without the overwhelm.",
+    text: "Evidence-based practice with lived experience, woven together. You're guided by someone who understands matrescence deeply, and can meet you where you are at, with reliable information at the right time. No information overload, or well-meaning conflicting advice.",
   },
   {
     title: "Understand Matrescence",
     icon: "grateful-hands",
-    text: "Once you can name what you're going through, you can move through it. Understand the psychological shift into motherhood, and find a path within it that's actually yours.",
+    text: "Once you can name what you're going through, you can move through it. Understand the disorienting shift you are experiencing and the internal and external environments at play, to find your own path in matrescence. One that feels right for you.",
   },
 ] as const;
 
@@ -78,8 +78,23 @@ export const packages: readonly Package[] = [
 ];
 
 export const bioParagraphs = [
-  "I care deeply about changing how mothers experience their path into motherhood. I crashed into motherhood after years in corporate tech and leadership, where my life revolved around achievement, working with teams of a hundred people in a single day.",
-  "Overnight, I moved into a world where I sat alone with my baby in my arms, stuck on the couch learning to breastfeed, and it was suddenly hard to measure my achievements each day. Somewhere along the way I'd forgotten that raising a human, nurturing them, and sitting in presence with them is one of the most sacred jobs a person can do.",
-  "I've spent the years since reconnecting with my values and my creativity, relearning the art of nurture, learning how to hold space, and surrounding myself with women who lead in a different way - a kinder way.",
+  "I care deeply about changing how mothers experience their path into motherhood. I crashed into motherhood after years in corporate tech and leadership, where my life revolved around achievement and working with many teams of people in a single day.",
+  "Overnight, I moved into a world where I sat alone with my baby in my arms, stuck on the couch learning to breastfeed. It was suddenly hard to measure my achievements each day. Somewhere along the way I'd forgotten that raising a human, nurturing them, and sitting in presence with them can be one of the hardest and most sacred jobs a person can do.",
+  "Since then, I've reshaped some of my values and reignited my creativity, relearning the art of nurture, learning how to hold space, and surrounding myself with women who lead in a different way.",
   "I bring my lived experience and my creativity to this Matrescence Practitioner role, and I'd love to work with you to find your own path in motherhood, one that aligns with your values.",
+] as const;
+
+export const crisisSupport = [
+  {
+    label: "Free mental health helpline",
+    text: "1737, free call or text (24 hours a day, 7 days a week)",
+  },
+  {
+    label: "Healthline",
+    text: "0800 611 116 (24 hours a day, 7 days a week)",
+  },
+  {
+    label: "If it is an emergency",
+    text: "please dial 111 or go to your local emergency department.",
+  },
 ] as const;

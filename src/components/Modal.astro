@@ -51,38 +51,36 @@ import Icon from "./Icon.astro";
     </button>
 
     <div id="giftCardStep1" class="modal-step">
-      <h3 id="giftCardTitle">Request a Gift Card</h3>
-      <p class="modal-sub">Choose an amount below. We will collect your email and send you details to transfer payment.</p>
+      <h3 id="giftCardTitle">Give the gift of care</h3>
+      <p class="modal-sub">Choose an amount below, pop in your email, and Janet will be in touch with bank details to complete your gift card.</p>
       
-      <label>Gift Card Value</label>
       <div class="gift-choices">
         <button class="btn-choice active" type="button" data-amount="80">$80</button>
+        <button class="btn-choice" type="button" data-amount="100">$100</button>
         <button class="btn-choice" type="button" data-amount="150">$150</button>
-        <button class="btn-choice" type="button" data-amount="250">$250</button>
+        <button class="btn-choice" type="button" data-amount="200">$200</button>
+        <button class="btn-choice" type="button" data-amount="300">$300</button>
         <button class="btn-choice" type="button" data-amount="500">$500</button>
         <button class="btn-choice" type="button" data-amount="custom">Custom</button>
       </div>
 
       <div id="customAmountWrapper" hidden>
-        <label for="giftCustomAmount">Custom Amount ($)</label>
-        <input type="number" id="giftCustomAmount" min="10" placeholder="Enter amount" />
+        <label for="giftCustomAmount">Custom amount (NZD)</label>
+        <input type="number" id="giftCustomAmount" min="1" placeholder="e.g. 120" />
       </div>
 
-      <label for="giftName">Your Name</label>
-      <input type="text" id="giftName" placeholder="Your name" required />
-
-      <label for="giftEmail">Your Email</label>
+      <label for="giftEmail">Your email</label>
       <input type="email" id="giftEmail" placeholder="you@email.com" required />
 
       <div class="modal-actions">
-        <button class="btn btn-primary" type="button" data-gift-submit>Request Gift Card</button>
+        <button class="btn btn-primary btn-block" type="button" data-gift-submit>Request gift card</button>
       </div>
     </div>
 
     <div id="giftCardStep2" class="modal-step" hidden>
       <div class="modal-success">
         <Icon name="check" />
-        <p>Request initiated! Your email app should now be open with your request ready to send to Janet. Once payment is transferred, she'll email you the card.</p>
+        <p>Thanks! Your email app should now be open, just hit send. Janet will reply with bank details so you can complete your gift card.</p>
       </div>
       <div class="modal-actions">
         <button class="btn btn-primary btn-block" type="button" data-close-modal="giftCardModal">Done</button>

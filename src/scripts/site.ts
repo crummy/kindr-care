@@ -162,9 +162,6 @@ const resetGiftCard = (): void => {
   const customWrapper = byId("customAmountWrapper");
   if (customWrapper) customWrapper.hidden = true;
 
-  const nameInput = byId<HTMLInputElement>("giftName");
-  if (nameInput) nameInput.value = "";
-
   const emailInput = byId<HTMLInputElement>("giftEmail");
   if (emailInput) emailInput.value = "";
 
@@ -198,11 +195,10 @@ const setupGiftCard = (): void => {
   });
 
   document.querySelector("[data-gift-submit]")?.addEventListener("click", () => {
-    const name = byId<HTMLInputElement>("giftName")?.value.trim() ?? "";
     const email = byId<HTMLInputElement>("giftEmail")?.value.trim() ?? "";
 
-    if (!name || !email) {
-      alert("Please fill in your name and email.");
+    if (!email) {
+      alert("Please enter your email.");
       return;
     }
 
@@ -217,8 +213,8 @@ const setupGiftCard = (): void => {
     }
 
     window.location.href = encodeMailto(
-      "Kindr Gift Card Request",
-      `Hi Janet,\n\nI would like to purchase a Kindr Gift Card.\n\nDetails:\nName: ${name}\nEmail: ${email}\nGift Card Amount: $${finalAmount}\n\nPlease respond with your bank account details so I can transfer payment.\n\nThank you!`
+      "Kindr gift card request",
+      `Hi Janet,\n\nI would like to buy a Kindr gift card.\n\nMy email: ${email}\nAmount: $${finalAmount}\n\nPlease send through bank details so I can complete the purchase.\n\nThank you!`,
     );
 
     const step1 = byId("giftCardStep1");
