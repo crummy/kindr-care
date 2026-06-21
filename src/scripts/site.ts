@@ -29,16 +29,25 @@ type AvailabilitySlot = {
 };
 
 const setupAvailability = async (): Promise<void> => {
+  const availability = document.querySelector<HTMLElement>("[data-availability]");
   const slotsContainer = document.querySelector<HTMLElement>("[data-availability-slots]");
-  if (!slotsContainer) return;
+  if (!availability || !slotsContainer) return;
+
+  availability.hidden = false;
 
   try {
     const response = await fetch("/api/availability");
-    if (!response.ok) return;
+    if (!response.ok) {
+      availability.hidden = true;
+      return;
+    }
 
     const data = (await response.json()) as { slots?: AvailabilitySlot[] };
     const slots = data.slots?.filter((slot) => slot.label && slot.schedulingUrl) ?? [];
-    if (slots.length === 0) return;
+    if (slots.length === 0) {
+      availability.hidden = true;
+      return;
+    }
 
     slotsContainer.replaceChildren(
       ...slots.map((slot) => {
@@ -51,6 +60,7 @@ const setupAvailability = async (): Promise<void> => {
       }),
     );
   } catch {
+    availability.hidden = true;
     return;
   }
 };

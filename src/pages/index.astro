@@ -5,7 +5,7 @@ import Icon from "@components/Icon.astro";
 import Modal from "@components/Modal.astro";
 import SectionHead from "@components/SectionHead.astro";
 import BaseLayout from "@layouts/BaseLayout.astro";
-import { availabilitySlots, bioParagraphs, crisisSupport, packages, whyCards } from "@content/site";
+import { bioParagraphs, crisisSupport, packages, whyCards } from "@content/site";
 ---
 
 <BaseLayout
@@ -78,10 +78,10 @@ import { availabilitySlots, bioParagraphs, crisisSupport, packages, whyCards } f
           <div class="meet-meta">
             <div class="name">Janet Horwell</div>
             <div class="role">Matrescence Practitioner</div>
-            <div class="availability">
+            <div class="availability" data-availability hidden>
               <span class="label">Available this week</span>
               <div class="slots" data-availability-slots>
-                {availabilitySlots.map((slot) => <button class="slot" type="button" data-calendly>{slot}</button>)}
+                <span class="availability-loading">Checking availability...</span>
               </div>
             </div>
             <button class="btn btn-primary btn-block" type="button" data-calendly>Book with Janet</button>

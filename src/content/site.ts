@@ -11,8 +11,6 @@ export const navLinks = [
   { href: "/contact", label: "Contact" },
 ] as const;
 
-export const availabilitySlots = ["Wed 10:00am", "Thu 10:00am", "Thu 12:00pm"] as const;
-
 export const whyCards = [
   {
     title: "Continuity of Care",
