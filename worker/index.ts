@@ -62,6 +62,10 @@ const isAvailableTime = (slot: CalendlyAvailableTime): slot is Required<Calendly
 
 const getAvailability = async (env: Env): Promise<Response> => {
   if (!env.CALENDLY_API_TOKEN || !env.CALENDLY_EVENT_TYPE_URI) {
+    console.warn("Calendly availability unavailable: missing Worker binding", {
+      hasApiToken: Boolean(env.CALENDLY_API_TOKEN),
+      hasEventTypeUri: Boolean(env.CALENDLY_EVENT_TYPE_URI),
+    });
     return json({ slots: [] }, { status: 503 }, 0);
   }
 
@@ -80,6 +84,12 @@ const getAvailability = async (env: Env): Promise<Response> => {
   });
 
   if (!response.ok) {
+    const body = await response.text();
+    console.warn("Calendly availability request failed", {
+      status: response.status,
+      statusText: response.statusText,
+      body: body.slice(0, 500),
+    });
     return json({ slots: [] }, { status: 502 }, 0);
   }
 
@@ -100,7 +110,14 @@ export default {
     const url = new URL(request.url);
 
     if (url.pathname === "/api/availability") {
-      return getAvailability(env);
+      try {
+        return await getAvailability(env);
+      } catch (error) {
+        console.error("Calendly availability request errored", {
+          message: error instanceof Error ? error.message : String(error),
+        });
+        return json({ slots: [] }, { status: 500 }, 0);
+      }
     }
 
     return env.ASSETS.fetch(request);
