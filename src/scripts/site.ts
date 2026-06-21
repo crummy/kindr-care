@@ -14,13 +14,45 @@ const encodeMailto = (subject: string, body: string): string => {
   return `mailto:${business.email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
 };
 
-const openCalendly = (): void => {
+const openCalendly = (url = business.calendlyUrl): void => {
   if (window.Calendly) {
-    window.Calendly.initPopupWidget({ url: business.calendlyUrl });
+    window.Calendly.initPopupWidget({ url });
     return;
   }
 
-  window.open(business.calendlyUrl, "_blank", "noopener,noreferrer");
+  window.open(url, "_blank", "noopener,noreferrer");
+};
+
+type AvailabilitySlot = {
+  label: string;
+  schedulingUrl: string;
+};
+
+const setupAvailability = async (): Promise<void> => {
+  const slotsContainer = document.querySelector<HTMLElement>("[data-availability-slots]");
+  if (!slotsContainer) return;
+
+  try {
+    const response = await fetch("/api/availability");
+    if (!response.ok) return;
+
+    const data = (await response.json()) as { slots?: AvailabilitySlot[] };
+    const slots = data.slots?.filter((slot) => slot.label && slot.schedulingUrl) ?? [];
+    if (slots.length === 0) return;
+
+    slotsContainer.replaceChildren(
+      ...slots.map((slot) => {
+        const button = document.createElement("button");
+        button.className = "slot";
+        button.type = "button";
+        button.textContent = slot.label;
+        button.addEventListener("click", () => openCalendly(slot.schedulingUrl));
+        return button;
+      }),
+    );
+  } catch {
+    return;
+  }
 };
 
 const showWaitlistStep = (step: 1 | 2 | 3): void => {
@@ -229,9 +261,10 @@ const setupPage = (): void => {
   if (yearEl) {
     yearEl.textContent = new Date().getFullYear().toString();
   }
-  document.querySelectorAll("[data-calendly]").forEach((button) => {
-    button.addEventListener("click", openCalendly);
+  document.querySelectorAll<HTMLElement>("[data-calendly]").forEach((button) => {
+    button.addEventListener("click", () => openCalendly());
   });
+  void setupAvailability();
 
   setupReadMore();
   setupWaitlist();

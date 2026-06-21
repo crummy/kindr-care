@@ -80,7 +80,7 @@ import { availabilitySlots, bioParagraphs, crisisSupport, packages, whyCards } f
             <div class="role">Matrescence Practitioner</div>
             <div class="availability">
               <span class="label">Available this week</span>
-              <div class="slots">
+              <div class="slots" data-availability-slots>
                 {availabilitySlots.map((slot) => <button class="slot" type="button" data-calendly>{slot}</button>)}
               </div>
             </div>
