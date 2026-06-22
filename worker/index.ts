@@ -24,7 +24,8 @@ type AvailabilitySlot = {
 };
 
 const CALENDLY_AVAILABLE_TIMES_URL = "https://api.calendly.com/event_type_available_times";
-const MAX_SLOTS = 3;
+const MAX_SLOTS = 8;
+const MAX_SLOTS_PER_DAY = 2;
 const START_BUFFER_MS = 5 * 60 * 1000;
 const ONE_WEEK_MS = 7 * 24 * 60 * 60 * 1000;
 
@@ -56,6 +57,15 @@ const formatSlot = (startTime: string): string => {
   return `${weekday} ${hour}:${minute}${dayPeriod}`;
 };
 
+const getSlotDayKey = (startTime: string): string => {
+  return new Intl.DateTimeFormat("en-CA", {
+    year: "numeric",
+    month: "2-digit",
+    day: "2-digit",
+    timeZone: "Pacific/Auckland",
+  }).format(new Date(startTime));
+};
+
 const isAvailableTime = (slot: CalendlyAvailableTime): slot is Required<CalendlyAvailableTime> => {
   return slot.status === "available" && Boolean(slot.start_time) && Boolean(slot.scheduling_url);
 };
@@ -75,6 +85,7 @@ const getAvailability = async (env: Env): Promise<Response> => {
   url.searchParams.set("event_type", env.CALENDLY_EVENT_TYPE_URI);
   url.searchParams.set("start_time", start.toISOString());
   url.searchParams.set("end_time", end.toISOString());
+  url.searchParams.set("count", "100");
 
   const response = await fetch(url, {
     headers: {
@@ -94,13 +105,24 @@ const getAvailability = async (env: Env): Promise<Response> => {
   }
 
   const data = (await response.json()) as CalendlyAvailableTimesResponse;
-  const slots: AvailabilitySlot[] = (Array.isArray(data.collection) ? data.collection : [])
-    .filter(isAvailableTime)
-    .slice(0, MAX_SLOTS)
-    .map((slot) => ({
+  const slotCountsByDay = new Map<string, number>();
+  const slots: AvailabilitySlot[] = [];
+
+  for (const slot of Array.isArray(data.collection) ? data.collection : []) {
+    if (!isAvailableTime(slot)) continue;
+
+    const dayKey = getSlotDayKey(slot.start_time);
+    const slotsForDay = slotCountsByDay.get(dayKey) ?? 0;
+    if (slotsForDay >= MAX_SLOTS_PER_DAY) continue;
+
+    slotCountsByDay.set(dayKey, slotsForDay + 1);
+    slots.push({
       label: formatSlot(slot.start_time),
       schedulingUrl: slot.scheduling_url,
-    }));
+    });
+
+    if (slots.length >= MAX_SLOTS) break;
+  }
 
   return json({ slots });
 };
