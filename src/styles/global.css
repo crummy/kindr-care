@@ -1068,9 +1068,32 @@ footer {
 }
 
 @media (max-width: 920px) {
+  .hero {
+    padding-top: 24px;
+  }
+
   .hero-grid {
     grid-template-columns: 1fr;
-    padding: 56px 0 50px;
+    padding: 0;
+  }
+
+  .intro-section,
+  .why,
+  .meet,
+  .packages,
+  .trusted,
+  .signup,
+  .contact {
+    padding-top: 56px;
+    padding-bottom: 56px;
+  }
+
+  .stat {
+    padding: 44px 0;
+  }
+
+  .crisis {
+    padding-bottom: 40px;
   }
 
   .hero h1 {

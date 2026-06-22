@@ -220,14 +220,11 @@ const resetGiftCard = (): void => {
 };
 
 const setupGiftCard = (): void => {
-  let selectedAmount: string = "80";
-
   document.querySelectorAll<HTMLButtonElement>("#giftCardModal .btn-choice").forEach((btn) => {
     btn.addEventListener("click", () => {
       document.querySelectorAll("#giftCardModal .btn-choice").forEach((b) => b.classList.remove("active"));
       btn.classList.add("active");
       const amount = btn.dataset.amount || "";
-      selectedAmount = amount;
 
       const customWrapper = byId("customAmountWrapper");
       if (customWrapper) {
@@ -244,6 +241,8 @@ const setupGiftCard = (): void => {
       return;
     }
 
+    const selectedAmount =
+      document.querySelector<HTMLButtonElement>("#giftCardModal .btn-choice.active")?.dataset.amount ?? "80";
     let finalAmount = selectedAmount;
     if (selectedAmount === "custom") {
       const customAmount = byId<HTMLInputElement>("giftCustomAmount")?.value.trim() ?? "";
