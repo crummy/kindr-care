@@ -77,9 +77,10 @@ export const packages: readonly Package[] = [
 
 export const bioParagraphs = [
   "I care deeply about changing how mothers experience their path into motherhood. I crashed into motherhood after years in corporate tech and leadership, where my life revolved around achievement and working with many teams of people in a single day.",
-  "Overnight, I moved into a world where I sat alone with my baby in my arms, stuck on the couch learning to breastfeed. It was suddenly hard to measure my achievements each day. Somewhere along the way I'd forgotten that raising a human, nurturing them, and sitting in presence with them can be one of the hardest and most sacred jobs a person can do.",
-  "Since then, I've reshaped some of my values and reignited my creativity, relearning the art of nurture, learning how to hold space, and surrounding myself with women who lead in a different way.",
-  "I bring my lived experience and my creativity to this Matrescence Practitioner role, and I'd love to work with you to find your own path in motherhood, one that aligns with your values.",
+  "Overnight, I moved into a world where I sat with my baby in my arms, stuck on the couch learning to breastfeed. It was suddenly hard to measure my achievements each day.",
+  "Somewhere along the way, I'd overlooked a different kind of leadership, one that we rarely acknowledge or celebrate. I was learning that presence, love and nurture is its own kind of achievement, and is among the hardest and most sacred work we ever do.",
+  "Since then, I've redesigned my life to lean into my creativity, rediscover the art of nurture, and surround myself with women who lead in a different way.",
+  "I bring my lived experience and my creativity to this Matrescence Practitioner role, and I'd love to work with you to find your own path in motherhood, one that aligns with your values and the life you'd like to build.",
 ] as const;
 
 export const crisisSupport = [
