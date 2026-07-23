@@ -117,11 +117,12 @@ import { bioParagraphs, crisisSupport, packages, whyCards } from "@content/site"
               ) : (
                 <a class:list={["btn", "btn-block", pkg.variant === "primary" ? "btn-primary" : "btn-outline"]} href={pkg.href ?? "#janet"}>{pkg.action}</a>
               )}
+              {pkg.pricingNote && <p class="pkg-pricing-note">{pkg.pricingNote}</p>}
             </article>
           ))}
         </div>
 
-        <p class="promise"><strong>Kindr promise:</strong> try it risk free. If you don't start your care by three months postpartum, we'll refund you completely. I want this service to be accessible, so please reach out if you'd like to access my sliding scale pricing.</p>
+        <p class="promise"><strong>Kindr promise:</strong> try it risk free. If you don't start your care by three months postpartum, we'll refund you completely.</p>
       </div>
     </section>
 

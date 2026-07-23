@@ -38,19 +38,23 @@ export type Package = {
   price: string;
   suffix?: string;
   action: string;
+  pricingNote?: string;
   href?: string;
   variant: "outline" | "primary" | "modal";
   popular?: boolean;
 };
+
+const slidingScalePricing = "I want this service to be accessible, so please reach out if you'd like to access my sliding scale pricing.";
 
 export const packages: readonly Package[] = [
   {
     title: "Single Session",
     icon: "person",
     description: "1:1 Matrescence Practitioner coaching, 50 minutes. A space to land, debrief, and find clarity on whatever's surfacing this week.",
-    price: "From $120",
+    price: "$120",
     suffix: "/ session",
     action: "Book this session",
+    pricingNote: slidingScalePricing,
     href: "#janet",
     variant: "outline",
   },
@@ -58,9 +62,10 @@ export const packages: readonly Package[] = [
     title: "Coaching Journey",
     icon: "plus",
     description: "6 sessions of 1:1 Matrescence Practitioner coaching. Ongoing, continuous care to walk alongside you through matrescence.",
-    price: "From $650",
+    price: "$650",
     suffix: "for 6 sessions",
     action: "Start the journey",
+    pricingNote: slidingScalePricing,
     href: "#janet",
     variant: "primary",
     popular: true,
